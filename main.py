@@ -2,7 +2,7 @@ import random
 import telebot
 from telebot import types
 
-token = '5205660497:AAHGxisKzUBhHR6b1OgUefWXC_UrfxeDHIM'
+token = ''
 bot = telebot.TeleBot(token)
 
 # Open and read file with images url
