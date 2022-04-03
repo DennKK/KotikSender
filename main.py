@@ -4,7 +4,7 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 
 
-API_TOKEN = '5205660497:AAHGxisKzUBhHR6b1OgUefWXC_UrfxeDHIM'
+API_TOKEN = ''
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -64,9 +64,7 @@ async def send_welcome(message: types.Message):
 @dp.message_handler()
 async def send_button(message: types.Message):
     if message.text.lower() == 'cat':
-        await bot.send_message(chat_id=message.chat.id, text="Press on button and get a cat picture. This bot was made by "
-                                                             "@DennKK5",
-                               reply_markup=btn())
+        await bot.send_message(chat_id=message.chat.id, text='Press on button and get a cat picture. This bot was made by "@DennKK5"', reply_markup=btn())
     else:
         await message.reply('Type "cat"!')
 
@@ -75,8 +73,7 @@ async def send_button(message: types.Message):
 async def send_cat(call: CallbackQuery):
     user_id = call.message.from_user.id
     num = calc_usr_imgs(user_id)
-    await bot.send_photo(chat_id=call.message.chat.id, photo=get_random_img(), caption='You are welcome! Pictures left: ' +
-                                                                                       str(num), reply_markup=btn())
+    await bot.send_photo(chat_id=call.message.chat.id, photo=get_random_img(), caption='You are welcome! Pictures left: ' + str(num), reply_markup=btn())
 
 
 if __name__ == '__main__':
